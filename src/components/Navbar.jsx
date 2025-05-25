@@ -11,13 +11,13 @@ function Navbar() {
 
     // togle menu Option
     const toggleMenu = () => {
-        setMenuOpent(!menuOpen)
+        setMenuOpen(!menuOpen)
     }
 
     useEffect(() => {
         const handeleScroll = () => {
             if (window.scrollY > 100) {
-                setStickysticky(true)
+                setSticky(true)
             } else (
                 setSticky(false)
             )

@@ -38,7 +38,7 @@ function Navbar() {
     return (
         <>
             <header className="w-full  bg-white fixed top-0 left-0 right-0">
-                <nav className={` py-4 lg:px-14 px-4 ${sticky? 'sticky top-0 left-0 right-0 bg-white' : ''}`}>
+                <nav className={` py-4 lg:px-14 px-4 ${sticky ? 'sticky top-0 left-0 right-0 bg-white border-b ' : ''}`}>
                     <div className="flex justify-between items-center text-base gap-8">
                         <a className="text-2xl font-semibold " href="">
                             Develop Agency
@@ -46,7 +46,7 @@ function Navbar() {
                         {/* nav item for large devices  */}
                         <ul className="md:flex space-x-12 hidden">
                             {
-                                nagOption.map(({ link, path }) => <Link key={path} smooth={true} spy={true} offset={-100} to={path}> {link}</Link>)
+                                nagOption.map(({ link, path }) => <Link className="py-2 px-4 transition-all duration-300 rounded   hover:text-[#2ecc71]   " key={path} smooth={true} spy={true} offset={-100} to={path}> {link}</Link>)
                             }
 
                         </ul>
@@ -56,14 +56,21 @@ function Navbar() {
 
                         </div>
 
-                        {/* icon menu for mobile device */}
+                        {/* humberger menu for mobile devies */}
                         <div className=" md:hidden ">
-                            <button className="focus:text-gray-500 focus:outline-none  ">
+                            <button onClick={toggleMenu} className="focus:text-gray-500 focus:outline-none  ">
                                 {
                                     menuOpen ? (<FaXmark className="h-6 w-6 " />) : (<FaBars className="h-6 w-6 " />)
                                 }
                             </button>
                         </div>
+                    </div>
+                    {/* nav items for mobile devices  */}
+                    <div className={`space-y-4 mt-3  ${menuOpen ? "black fixed bg-[#2ecc71] w-full p-3 text-white " : " hidden"}`}>
+                        {
+                            nagOption.map(({ link, path }) => <Link className="block text-base py-0.5 " key={path} smooth={true} spy={true} offset={-100} to={path}> {link}</Link>)
+                        }
+
                     </div>
                 </nav>
             </header>
